@@ -1,10 +1,28 @@
-<html>
-    <body>
-        Hello everybody. Type some text here to analyze it:<br>
-        <form action="/analyze" method="POST">
-            <textarea style="width:100%; height: 10em" name="usertext"></textarea>
-            <br>
-            <input type="submit" value="Analyze">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Life Expectancy Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        
+        <img src="{{ url_for('static', filename='globe.jpg') }}" width="100" style="margin-bottom: 20px;">
+        <h1>Life Expectancy</h1>
+        <p>Explore historical data by country.</p>
+        
+        <form action="/lookup" method="POST">
+            <div style="text-align: left;">
+                <label>Country Name:</label>
+                <input type="text" name="country" placeholder="e.g. Afghanistan" required>
+                
+                <label>Year:</label>
+                <input type="number" name="year" placeholder="e.g. 1900" required>
+            </div>
+            
+            <input type="submit" value="Search Data">
         </form>
-    </body>
+    </div>
+</body>
 </html>
