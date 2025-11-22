@@ -1,8 +1,28 @@
-<html>
-    <body>
-        You entered:
-        <pre style="background-color: lightgray; margin-left: 5em">{{ usertext }}</pre>
-        My analysis:
-        <pre style="background-color: lightgray; margin-left: 5em">{{ analysis }}</pre>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results</h1>
+        
+        <p>You searched for: <strong>{{ country }}</strong> in Year: <strong>{{ year }}</strong></p>
+
+        {% if is_error %}
+            <div class="error-box">
+                {{ result }}
+            </div>
+        {% else %}
+            <div class="result-box">
+                {{ result }}
+            </div>
+        {% endif %}
+
+        <br>
+        <a href="/" class="btn">Search Again</a>
+    </div>
+</body>
 </html>
